@@ -1,11 +1,36 @@
 #
-# Name                  Samuel Kommu
-# Modified from         Jacob Rapp's SocketServer.py
+#                            Cisco-Style BSD
+#                 Copyright (c) 2010, Cisco Systems, Inc
+#                          All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without 
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright notice,
+# this list of conditions and the following disclaimer. 
+#
+# * Redistributions in binary form must reproduce the above copyright notice,
+# this list of conditions and the following disclaimer in the documentation 
+# and/or other materials provided with the distribution. 
+#
+# * Neither the name of Cisco, the name of the copyright holder nor the names
+# of their respective contributors may be used to endorse or promote products
+# derived from this software without specific prior written permission. 
 #
 #
-# Added help section by R. Stellman
-# 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
 
+# Help
 """\n bufferMonitorThread \n
 \t ... Works with bufferClient.py
 \t ... Use: python bufferMonitorThread
@@ -19,6 +44,8 @@
 \t ..
 \n """
 
+
+# imports, includes etc
 from cisco import *
 from datetime import datetime
 import time
@@ -26,19 +53,19 @@ from socket import *
 from sys import *
 from string import join
 
-myHost = ''                        # '' = all available interfaces on host
-myPort = 50007                  # listen on a non-reserved port number
+myHost = ''                                                     # '' = all available interfaces on host
+myPort = 50007                                                  # listen on a non-reserved port number
 
-sockobj = socket(AF_INET, SOCK_STREAM)          # make a TCP socket object
-sockobj.bind((myHost, myPort))                  # bind it to server port number
-sockobj.listen(3)                               # listen, allow 5 pending connects
-sockobj.settimeout(1)
+sockobj = socket(AF_INET, SOCK_STREAM)                          # make a TCP socket object
+sockobj.bind((myHost, myPort))                                  # bind it to server port number
+sockobj.listen(3)                                               # listen, allow 3 pending connects
+sockobj.settimeout(1)                                           # Timeout if it takes more then a second 
 
 bufferValues = []
 oCli = CLI('show hardware internal buffer info pkt-stats brief', False)
 
 counter=0
-while True:                                             # listen until process killed
+while True:                                                     # listen until process killed
         connectionFailed = False
         curDate=datetime.now().strftime("%Y.%m.%d.%H.%M.%S")
         oCli.rerun()
