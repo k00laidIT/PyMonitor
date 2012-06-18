@@ -1,6 +1,6 @@
 #
 #                            Cisco-Style BSD
-#                 Copyright (c) 2010, Cisco Systems, Inc
+#                 Copyright (c) 2012, Cisco Systems, Inc
 #                          All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without 
