@@ -1,9 +1,35 @@
 #
-# Name                  Samuel Kommu
-# Modified from         Jacob Rapp's SocketClient.py
-# Modified              To run on more versions of Python by R. Stellman
-#                       And added help section
+#                            Cisco-Style BSD
+#                 Copyright (c) 2010, Cisco Systems, Inc
+#                          All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without 
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright notice,
+# this list of conditions and the following disclaimer. 
+#
+# * Redistributions in binary form must reproduce the above copyright notice,
+# this list of conditions and the following disclaimer in the documentation 
+# and/or other materials provided with the distribution. 
+#
+# * Neither the name of Cisco, the name of the copyright holder nor the names
+# of their respective contributors may be used to endorse or promote products
+# derived from this software without specific prior written permission. 
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
 
+# Help Section
 """\n  bufferClient \n      
    \t  ... Works with bufferMonitorThread.py
    \t  ... Use:  python bufferClient.py  n
@@ -14,7 +40,7 @@
    \n """
 
 import sys
-from cisco import *
+from cisco import *                             # for cisco library
 from socket import *                            # get socket constructor and constants
 serverHost = '10.10.1.201'                      # server name, or IP like in this case
 serverPort =  50007                             # non-reserved port used by the server
@@ -30,7 +56,7 @@ sockobj.connect((serverHost, serverPort))       # connect to server machine + po
 for line in message:
         sockobj.send(line)                      # send line to server over socket
         data = sockobj.recv(10800)              # receive line from server
-        for value in data.split(' '):
-                print (value)
+        for value in data.split(' '):           # split the values at [SPACE]
+                print (value)                   #   and print them
 
 sockobj.close()                                # close socket to send eof to server
