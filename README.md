@@ -34,5 +34,5 @@ In the spirit of sharing, please consider posting your changes back on this site
 Supported Platforms
 -------------------
 Nexus 3000 - Runnning Cisco NX-OS Release 5.0(3)U3(1) and above
-Nexus 5000 - <i>Coming Soon....</i>
-Nexus 7000 - <i>Coming Soon....</i>
+<br>Nexus 5000 - <i>Coming Soon....</i>
+<br>Nexus 7000 - <i>Coming Soon....</i>
