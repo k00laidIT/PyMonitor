@@ -31,8 +31,8 @@ I optimized your sample scripts - what next?
 --------------------------------------------
 In the spirit of sharing, please consider posting your changes back on this site.
 
-Supported Platforms
--------------------
+These scripts were tested on
+----------------------------
 Nexus 3000 - Runnning Cisco NX-OS Release 5.0(3)U3(1) and above
 <br>Nexus 5000 - <i>Coming Soon....</i>
 <br>Nexus 7000 - <i>Coming Soon....</i>
