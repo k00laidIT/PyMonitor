@@ -18,7 +18,7 @@ When do I use these scripts?
 How do I use the scripts?
 ----------------------------
 
-Execute bufferMonitorThread.py in response to either an event or at switch startup.  This script stores per second buffer usage to a file on the bootflash.  It does not need any command line parameters.  To get details on how to run Python scripts on Nexus check out https://github.com/datacenter/Nexus/wiki/Python-on-Nexus-3000-Series-Switches 
+Execute monitorThread.py in response to either an event or at switch startup.  This script stores per second buffer usage to a file on the bootflash.  It does not need any command line parameters.  To get details on how to run Python scripts on Nexus check out https://github.com/datacenter/Nexus/wiki/Python-on-Nexus-3000-Series-Switches 
 
 What else can I do with these scripts?
 --------------------------------------
