@@ -54,7 +54,7 @@ from string import join        # forthe response
 server_host = '172.25.187.8'   # server name, or IP like in this case
 server_port = 50007            # listen on a non-reserved port number
 # File where the buffer values will be stored - if requested
-buffer_file_name = "/bootflash/buffer.inmem.txt"
+buffer_file_name = "/bootflash/buffer_usage.log"
 
 sock_obj = socket(AF_INET, SOCK_STREAM)    # make a TCP socket object
 sock_obj.bind((server_host, server_port))  # bind it to server:port number
