@@ -68,7 +68,7 @@ cli_obj = CLI('show hardware internal buffer info pkt-stats brief', False)
 
 while True:                                # listen until process is killed/stopped
     connection_failed = False              # assume the connection has failed :/
-    cur_date=datetime.now().strftime("%Y.%m.%d.%H.%M.%S")   # for timestamp
+    cur_date=datetime.now().strftime("%y/%m/%d,%H:%M:%S")   # for timestamp
     cli_obj.rerun()                        # run the buffer cli command
     # from raw output, get the 4th line after splitting on new line "\n"
     f, m, buffer_usage = cli_obj.get_raw_output().split("\n")[4].rpartition(' ')
