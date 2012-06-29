@@ -80,11 +80,11 @@ while True:                                # listen until process is killed/stop
     except :                                      # may fail if no new connections
         connection_failed = True                  # so, if no connection requests 
         pass                                      # dont break - just continue
-    if ( connection_failed != True ):             # If there were new connections ---
+    if (connection_failed != True):             # If there were new connections ---
         data = int(connection.recv(10800))        # read next line on client socket
-        bv_count=len(buffer_values)               # the # of values we have in memory
-        if ( data < bv_count ):                   # Check that request is within range
-            if ( data == -2 ):      # Done with the monitoring - close the main thread
+        bv_count = len(buffer_values)               # the # of values we have in memory
+        if (data < bv_count):                   # Check that request is within range
+            if (data == -2):      # Done with the monitoring - close the main thread
                 break;
             if ( data == -1 ):                             # Save to file ...
                 buffer_file = open(buffer_file_name, 'w')  # open file in write mode
