@@ -37,6 +37,8 @@
    \t  ...       if n is -2 - then the monitorThread is stopped
    \t  ... Note: This program runs once and then ends.
    \t  ...       Developed on Python 2.7.2
+   \t  ... Date: 10 July 2012 - Modified for case when no argument is given
+   \t  ...       server host is the 3K chassis with the monitorThread.py running
    \t ..
    \n """
 
@@ -47,17 +49,23 @@ server_host = '172.25.187.8'              # server name, or IP like in this case
 server_port =  50007                      # non-reserved port used by the server
 message = "[b'10']"                       # text to send to server
                                           # requires bytes: b'' or str,encode()
-if len(argv) > 1:
-    message = (x.encode() for x in argv[1:])
+if (len(sys.argv)) > 1:
+        message = (x.encode() for x in sys.argv[1:])
+        
+        sockobj = socket(AF_INET, SOCK_STREAM)          # make a TCP/IP socket object
+        sockobj.connect((serverHost, serverPort))       # connect to server machine + port
 
-sock_obj = socket(AF_INET, SOCK_STREAM)       # make a TCP/IP socket object
-sock_obj.connect((server_host, server_port))  # connect to server machine + port
+        for line in message:
+                    sockobj.send(line)                  # send line to server over socket
+                    data = sockobj.recv(10800)          # receive line from server
 
-for line in message:
-    sock_obj.send(line)                   # send line to server over socket
-    data = sock_obj.recv(10800)           # receive lines from server
-    for value in data.split(' '):         # split at [SPACE] into lines 
-        print (value)                     # print each of those lines
-
-sock_obj.close()                          # close socket to send eof to server
+        for value in data.split(' '):
+                    print (value)
+                    
+        sockobj.close()                                 # close socket to send eof to server
+                
+else:
+       
+       print ("Use:  python bufferClient.py  n")
+       
 
