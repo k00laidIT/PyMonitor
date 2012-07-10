@@ -41,6 +41,7 @@
 \t
 \t ... Note: This program runs continously until you disconnect
 \t ... Developed on Python 2.7.2
+\t ... Date 10 Jul 2012 - Added: autodetect for server_host IP address
 \t ..
 \n """
 
@@ -51,8 +52,21 @@ from sys import *              # for parsing command line arguments
 from socket import *           # get socket constructor and constants
 from string import join        # forthe response
 
-server_host = '172.25.187.8'   # server name, or IP like in this case
+#  server_host = '172.25.187.8'   # server name, or IP like in this case
 server_port = 50007            # listen on a non-reserved port number
+
+# Get server IP
+
+s, inf1 = cli("show int mgmt0 brief | grep mgmt0");  o = inf1       
+o = o.replace ("mgmt0",""); o = o.replace ("--",""); o = o.replace ("up",""); inf = o.lstrip()
+
+myHost = inf.split(" ")[0]                  # server name, or IP
+
+#............ End of serverHost section
+
+
+
+
 # File where the buffer values will be stored - if requested
 buffer_file_name = "/bootflash/buffer_usage.log"
 
