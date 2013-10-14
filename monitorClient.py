@@ -18,7 +18,7 @@
    \t ..
    \n """
 
-from sys import *                         # for parsing command line arguments
+import sys                         # for parsing command line arguments
 from socket import *                      # get socket constructor and constants
  
 server_host = '172.25.187.8'              # server name, or IP like in this case
@@ -29,7 +29,7 @@ if (len(sys.argv)) > 1:
         message = (x.encode() for x in sys.argv[1:])
         
         sockobj = socket(AF_INET, SOCK_STREAM)          # make a TCP/IP socket object
-        sockobj.connect((serverHost, serverPort))       # connect to server machine + port
+        sockobj.connect((server_host, server_port))       # connect to server machine + port
 
         for line in message:
                     sockobj.send(line)                  # send line to server over socket
