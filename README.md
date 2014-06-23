@@ -5,7 +5,7 @@ Sample Python scripts to show how any counters can be assessed programmatically 
 
 What do you mean run Python on Nexus Switch?
 --------------------------------------------
-Nexus series switches, starting with 3000 series, have access to Python interpreter by default!  The possibilites are unlimited.  For all the nitty-gritty details check out https://github.com/datacenter/Nexus/wiki/Python-on-Nexus-3000-Series-Switches
+Nexus series switches, starting with 3000 series, have access to Python interpreter by default!  The possibilites are unlimited.  For all the nitty-gritty details check out  http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/sw/python/api/python_api/API_functions.html
 
 When do I use these scripts?
 ----------------------------
@@ -18,7 +18,7 @@ When do I use these scripts?
 How do I use the scripts?
 ----------------------------
 
-Execute monitorThread.py in response to either an event or at switch startup.  This script stores per second buffer usage.  It does not need any command line parameters.  This script also implements sockets using which one could send messages to the Thread.  monitorClient.py is an example script to send messages to the monitorThread.py.  Using monitorClient.py, one could send a message to monitorThread.py to 1. save the values to disk, 2. send all or subset of values.  Script monitorClient.py does not need to run on the switch - it could run on any server!  Note:  care should be taken to avoid security compromise.  To get details on how to run Python scripts on Nexus check out https://github.com/datacenter/Nexus/wiki/Python-on-Nexus-3000-Series-Switches 
+Execute monitorThread.py in response to either an event or at switch startup.  This script stores per second buffer usage.  It does not need any command line parameters.  This script also implements sockets using which one could send messages to the Thread.  monitorClient.py is an example script to send messages to the monitorThread.py.  Using monitorClient.py, one could send a message to monitorThread.py to 1. save the values to disk, 2. send all or subset of values.  Script monitorClient.py does not need to run on the switch - it could run on any server!  Note:  care should be taken to avoid security compromise.  To get details on how to run Python scripts on Nexus check out http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/sw/python/api/python_api/API_functions.html 
 
 What else can I do with these scripts?
 --------------------------------------
